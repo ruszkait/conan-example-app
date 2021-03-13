@@ -5,33 +5,27 @@
 install dependencies to build folder (e.g. `build`)
 
 ```
-conan install . --build=missing -if=build
+conan install . -if=build
 ```
 
-configure project in build folder (e.g. `build`)
+configure and build the project in build folder (e.g. `build`)
 
 ```
-cmake -S . -B build
-```
-
-build project in build folder (e.g. `build`)
-
-```
-cmake --build build --config Release -j
+conan build . -bf=build
 ```
 
 ## deployment
 
-create a packaged version with specified user and channel (e.g. `dena/testing`)
+create a packaged version with specified user and channel (e.g. `dena/stable`)
 
 ```
-conan create . dena/testing
+conan create . dena/stable
 ```
 
 upload previously created package to a conan server of choice (e.g. `dena-local`)
 
 ```
-conan upload dena_app/0.1@dena/testing --all -r=dena-local
+conan upload dena_app/1.0@dena/stable --all -r=dena-local
 ```
 
 ## usage
@@ -39,5 +33,5 @@ conan upload dena_app/0.1@dena/testing --all -r=dena-local
 install the package from server (build if missing) into the conan cache
 
 ```
-conan install dena_app/0.1@dena/testing --build=missing -s build_type=Debug
+conan install dena_app/1.0@dena/stable --build=missing -s build_type=Debug
 ```

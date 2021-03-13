@@ -3,15 +3,19 @@ from conans import ConanFile, CMake
 
 class DenaAppConan(ConanFile):
     name = "dena_app"
-    version = "0.1"
+    version = "1.0"
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake_find_package"
+    build_policy = "missing"
+    url = "https://github.com/dornbirndevelops/conan-example-app"
+    license = "feel free to use it"
+    description = "Example showcase on how to develop a C++ application depending on other self-made libraries with Conan Package Manager and CMake"
 
     def build_requirements(self):
         self.build_requires("cmake/3.19.6@")
 
     def requirements(self):
-        self.requires("dena_library/0.1@dena/testing")
+        self.requires("dena_library/1.0@dena/stable")
 
     def export_sources(self):
         self.copy("*")
