@@ -33,5 +33,5 @@ conan upload dena_app/1.0@dena/stable --all -r=dena-local
 install the package from server (build if missing) into the conan cache
 
 ```
-conan install dena_app/1.0@dena/stable --build=missing -s build_type=Debug
+conan install dena_app/1.0@dena/stable -s build_type=Debug
 ```
